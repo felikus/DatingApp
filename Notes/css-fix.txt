@@ -1,0 +1,44 @@
+Step 1: Remove any existing css-select
+npm uninstall css-select
+
+Step 2: Clean up lock files and modules
+rm -rf node_modules
+rm -f package-lock.json
+npm cache clean --force
+
+Step 3: Install css-select@5.1.0 explicitly
+npm install css-select@5.1.0 --save-exact
+
+
+ Step 4: Reinstall all other dependencies
+ npm install --legacy-peer-deps
+The --legacy-peer-deps helps prevent npm from trying to upgrade to css-select@6 due to indirect dependencies.
+
+Step 5: Verify the installed version
+npm ls css-select
+
+
+Quick Recap Checklist
+
+✅ In project folder:
+
+1️⃣ Uninstall old:
+
+npm uninstall css-select
+2️⃣ Clean everything:
+
+rm -rf node_modules
+rm -f package-lock.json
+npm cache clean --force
+3️⃣ Install css-select@5.1.0:
+
+npm install css-select@5.1.0 --save-exact
+4️⃣ Install rest:
+
+npm install --legacy-peer-deps
+5️⃣ Verify:
+
+npm ls css-select
+6️⃣ Build:
+
+ng serve
